@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Required meta tags -->
+
+<head>
+    <title>Spring Security Example </title>
+</head>
+
+<body>
+
+<div style="display: flex; justify-content: space-around;">
+    <div>
+        TODO <br><br>
+        {{#tasksTODO}}
+            <div style="display: flex;justify-content: space-between; padding-top: 5px">
+                <span style="flex-grow: 2; width: 150px">{{name}}</span>
+
+                <div>
+                    <a href="/tasks/{{id}}/edit_task">Edit</a>
+                    <a href="/tasks/{{id}}/detail">Detail</a>
+                    <form action="/tasks/{{id}}/del_task" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+
+            </div>
+        {{/tasksTODO}}
+    </div>
+
+    <div>
+        Tasks in process <br><br>
+        {{#tasksProcess}}
+            <div style="display: flex;justify-content: space-between; padding-top: 5px">
+                <span style="flex-grow: 2; width: 200px">{{name}}</span>
+
+                <div>
+                    <a href="/tasks/{{id}}/edit_task">Edit</a>
+                    <a href="/tasks/{{id}}/detail">Detail</a>
+                    <form action="/tasks/{{id}}/del_task" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+
+                </div>
+
+            </div>
+        {{/tasksProcess}}
+    </div>
+
+    <div>
+        Finished tasks <br><br>
+        {{#tasksFinished}}
+            <div style="display: flex;justify-content: space-between; padding-top: 5px">
+
+                <span style="flex-grow: 2; width: 150px">{{name}}</span>
+
+                <div>
+                    <a href="/tasks/{{id}}/edit_task">Edit</a>
+                    <a href="/tasks/{{id}}/detail">Detail</a>
+                    <form action="/tasks/{{id}}/del_task" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {{/tasksFinished}}
+    </div>
+
+</div>
+
+<div style="margin-top: 50px; display: flex; justify-content: space-around;">
+
+    <div>
+        <form method="post" action="/tasks/add_task">
+            <div>
+                <span>Name: </span><input type="text" name="name" placeholder="Введите название"><br>
+                <span>Description: </span><input type="text" name="description" placeholder="Введите описание"><br>
+                <span>Deadline: </span><input type="text" name="deadline" placeholder="YYYY-MM-DD"><br>
+                <!--<span>Task stage number: </span><input type="text" name="taskStage" placeholder="Введите номер стадии"><br>-->
+                <p>Task stage number: <select size="3" name="taskStage">
+                    <option value="1">TODO</option>
+                    <option value="2"> Tasks in process </option>
+                    <option value="3">Finished tasks</option>
+                </select></p><br>
+                <button type="submit">Add task</button><br>
+            </div>
+        </form>
+    </div>
+
+</div>
+<br>
+{{errorString}}
+</body>
+
+
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Required meta tags -->
+
+<head>
+    <title>Spring Security Example </title>
+</head>
+
+<body>
+
+<form action=""></form>
+
+<div style="display: flex; justify-content: space-around;">
+    <div>
+        <p>TO DO</p><br>
+        {{#todoTasks}}
+            <span>{{name}}</span>
+            <a href="/tasks/{{id}}">Edit</a>
+        {{/todoTasks}}
+    </div>
+    <div>
+        <p>tasks in process</p><br>
+        {{processTasks}}
+    </div>
+    <div>
+        <p>Finished tasks</p><br>
+        {{finishedTasks}}
+    </div>
+</div>
+
+</body>
+
+
+
+</html>

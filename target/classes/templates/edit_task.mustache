@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Required meta tags -->
+
+<head>
+    <title>Spring Security Example </title>
+</head>
+
+<body>
+{{#taskForUpdate}}
+<form action="/tasks/{{id}}/edit_task" method="post">
+
+    <span>Name: </span><input type="text" name="name" value="{{name}}"><br>
+    <span>Description: </span><input type="text" name="description" value="{{description}}"><br>
+    <span>Deadline: </span><input type="text" name="deadline" value="{{deadline}}" placeholder="YYYY-MM-DD"><br>
+    <!--<span>Task stage number: </span><input type="text" name="taskStage" value="{{taskStage}}"><br>-->
+
+    <p>Task stage number: <select size="3" name="taskStage">
+        <option value="1">TODO</option>
+        <option value="2"> Tasks in process </option>
+        <option value="3">Finished tasks</option>
+    </select></p><br>
+
+    <button type="submit">Update</button>
+
+</form>
+{{/taskForUpdate}}
+
+
+
+</body>
+
+
+
+</html>
